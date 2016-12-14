@@ -10,21 +10,21 @@ t.render(function(){
   // and then called each time something changes that
   // you might want to react to, such as new data being
   // stored with t.set()
-  var xhr = new XMLHttpRequest();
-  xhr.open("GET", "http://obed.store:17888/update", true);
-  xhr.onload = function (e) {
-    if (xhr.readyState === 4) {
-      if (xhr.status === 200) {
-        console.log(xhr.responseText);
-      } else {
-        console.error(xhr.statusText);
-      }
-    }
-  };
-  xhr.onerror = function (e) {
-    console.error(xhr.statusText);
-  };
-  xhr.send(null);
+  // var xhr = new XMLHttpRequest();
+  // xhr.open("GET", "http://obed.store:17888/update", true);
+  // xhr.onload = function (e) {
+  //   if (xhr.readyState === 4) {
+  //     if (xhr.status === 200) {
+  //       console.log(xhr.responseText);
+  //     } else {
+  //       console.error(xhr.statusText);
+  //     }
+  //   }
+  // };
+  // xhr.onerror = function (e) {
+  //   console.error(xhr.statusText);
+  // };
+  // xhr.send(null);
 });
 
 // close overlay if user clicks outside our content
