@@ -81,14 +81,14 @@ var formatNPSUrl = function(t, url){
 
 var boardButtonCallback = function(t){
   return t.popup({
-    title: 'Popup List Example',
+    title: 'Опубликовать изменения',
     items: [
       {
-        text: 'Open Overlay',
+        text: 'На тестовом сайте',
         callback: function(t){
           return t.overlay({
             url: './overlay.html',
-            args: { rand: (Math.random() * 100).toFixed(0) }
+            args: { site: 'test' }
           })
           .then(function(){
             return t.closePopup();
@@ -96,11 +96,11 @@ var boardButtonCallback = function(t){
         }
       },
       {
-        text: 'Open Board Bar',
+        text: 'На основном сайте',
         callback: function(t){
-          return t.boardBar({
-            url: './board-bar.html',
-            height: 200
+          return t.overlay({
+            url: './overlay.html',
+            args: { site: 'main' }
           })
           .then(function(){
             return t.closePopup();
@@ -192,7 +192,7 @@ TrelloPowerUp.initialize({
   'board-buttons': function(t, options){
     return [{
       icon: WHITE_ICON,
-      text: 'Template',
+      text: 'Опубликовать',
       callback: boardButtonCallback
     }];
   },
