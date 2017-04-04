@@ -42,8 +42,7 @@ t.render(function(){
   if (overwrite) {
     var link = document.getElementById('update-link');
     if (!link.href.includes('overwrite=1')) {
-      var href = link.href + "?overwrite=1";
-      link.setAttribute("href", href+"?overwrite=1");
+      link.setAttribute("href", link.href+"?overwrite=1");
     }
   }
 });
