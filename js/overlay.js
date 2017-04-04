@@ -3,7 +3,12 @@
 var t = TrelloPowerUp.iframe();
 
 // you can access arguments passed to your iframe like so
-var site = t.arg('site');
+var overwrite = t.arg('overwrite');
+if (overwrite) {
+  var link = document.getElementById('update-link');
+  var href = link.href + "?overwrite=1";
+  link.setAttribute("href", href+"?overwrite=1");
+}
 
 t.render(function(){
   // this function we be called once on initial load

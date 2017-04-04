@@ -84,11 +84,11 @@ var boardButtonCallback = function(t){
     title: 'Опубликовать изменения',
     items: [
       {
-        text: 'На тестовом сайте',
+        text: 'Полное обновление',
         callback: function(t){
           return t.overlay({
             url: './overlay.html',
-            args: { site: 'test' }
+            args: { overwrite: true }
           })
           .then(function(){
             return t.closePopup();
@@ -96,11 +96,11 @@ var boardButtonCallback = function(t){
         }
       },
       {
-        text: 'На основном сайте',
+        text: 'Быстрое обновление',
         callback: function(t){
           return t.overlay({
             url: './overlay.html',
-            args: { site: 'main' }
+            args: { overwrite: false }
           })
           .then(function(){
             return t.closePopup();
