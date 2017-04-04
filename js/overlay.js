@@ -1,14 +1,23 @@
 /* global TrelloPowerUp */
+if (!String.prototype.includes) {
+  String.prototype.includes = function(search, start) {
+    'use strict';
+    if (typeof start !== 'number') {
+      start = 0;
+    }
+
+    if (start + search.length > this.length) {
+      return false;
+    } else {
+      return this.indexOf(search, start) !== -1;
+    }
+  };
+}
 
 var t = TrelloPowerUp.iframe();
 
 // you can access arguments passed to your iframe like so
 var overwrite = t.arg('overwrite');
-if (overwrite) {
-  var link = document.getElementById('update-link');
-  var href = link.href + "?overwrite=1";
-  link.setAttribute("href", href+"?overwrite=1");
-}
 
 t.render(function(){
   // this function we be called once on initial load
@@ -30,6 +39,13 @@ t.render(function(){
   //   console.error(xhr.statusText);
   // };
   // xhr.send(null);
+  if (overwrite) {
+    var link = document.getElementById('update-link');
+    if (!link.href.includes('overwrite=1')) {
+      var href = link.href + "?overwrite=1";
+      link.setAttribute("href", href+"?overwrite=1");
+    }
+  }
 });
 
 // close overlay if user clicks outside our content
