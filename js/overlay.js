@@ -39,12 +39,15 @@ t.render(function(){
   //   console.error(xhr.statusText);
   // };
   // xhr.send(null);
-  if (overwrite) {
-    var link = document.getElementById('update-link');
-    if (!link.href.includes('overwrite=1')) {
-      link.setAttribute("href", link.href+"?overwrite=1");
+  var link = document.getElementById('update-link');
+  t.get('board', 'shared', 'updateUrl')
+  .then(function (data) {
+    var url = data;
+    if (overwrite) {
+      url = url+"?overwrite=1";
     }
-  }
+    link.setAttribute("href", url);
+  });
 });
 
 // close overlay if user clicks outside our content
