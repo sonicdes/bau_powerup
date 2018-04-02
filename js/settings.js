@@ -7,7 +7,7 @@ var updateUrlInput = document.getElementById('update-url');
 
 t.render(function(){
   return Promise.all([
-    t.get('board', 'shared', 'update-url'),
+    t.get('board', 'shared', 'updateUrl'),
   ])
   .spread(function(savedUpdateUrl){
     if(savedUpdateUrl){
