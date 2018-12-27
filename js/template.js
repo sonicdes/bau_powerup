@@ -86,8 +86,8 @@ var boardButtonCallback = function(t){
       {
         text: 'Полное обновление',
         callback: function(t){
-          return t.overlay({
-            url: './overlay.html',
+          return t.modal({
+            url: './modal.html',
             args: { overwrite: true }
           })
           .then(function(){
@@ -98,8 +98,8 @@ var boardButtonCallback = function(t){
       {
         text: 'Быстрое обновление',
         callback: function(t){
-          return t.overlay({
-            url: './overlay.html',
+          return t.modal({
+            url: './modal.html',
             args: { overwrite: false }
           })
           .then(function(){

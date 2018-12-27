@@ -50,16 +50,16 @@ t.render(function(){
   });
 });
 
-// close overlay if user clicks outside our content
+// close modal if user clicks outside our content
 document.addEventListener('click', function(e) {
   if(e.target.tagName == 'BODY') {
-    t.closeOverlay().done();
+    t.closeModal().done();
   }
 });
 
-// close overlay if user presses escape key
+// close modal if user presses escape key
 document.addEventListener('keyup', function(e) {
   if(e.keyCode == 27) {
-    t.closeOverlay().done();
+    t.closeModal().done();
   }
 });
